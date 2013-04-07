@@ -20,12 +20,15 @@
 @synthesize brain = _brain;
 @synthesize userIsInTheMiddleOfEnteringANumber = _userIsInTheMiddleOfEnteringANumber;
 
+//seter de brain
 - (CalculatorBrain *) brain{
     if(!_brain){
         _brain = [[CalculatorBrain alloc]init];
     }
     return _brain;
 }
+
+//metodo que resuelve el presionar un numero.
 - (IBAction)digitPressed:(UIButton *)sender {
     NSString *digit = [sender currentTitle];
     if(self.userIsInTheMiddleOfEnteringANumber){
@@ -37,10 +40,14 @@
 
     
 }
+
+//metodo que resuelve la logica encapsulada al momento de apretar enter.
 - (IBAction)enterPressed {
     [self.brain pushOperand:[self.display.text intValue]];
     self.userIsInTheMiddleOfEnteringANumber = NO;
 }
+
+
 - (IBAction)performSum:(UIButton *)sender {
     if (self.userIsInTheMiddleOfEnteringANumber) {
         [self enterPressed];
