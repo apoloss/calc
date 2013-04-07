@@ -1,0 +1,25 @@
+//
+//  CalculatorViewController.m
+//  Calculator
+//
+//  Created by Agustin Polito on 3/28/13.
+//  Copyright (c) 2013 Agustin Polito. All rights reserved.
+//
+
+#import "CalculatorViewController.h"
+
+@interface CalculatorViewController ()
+
+@end
+
+@implementation CalculatorViewController
+
+@synthesize display = _display;
+
+- (IBAction)digitPressed:(UIButton *)sender {
+    NSString *digit = [sender currentTitle];
+    NSString *newText = [self.display.text:stringByAppendingString:digit];
+
+}
+
+@end
